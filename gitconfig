@@ -5,6 +5,8 @@
 	name = kaseOga
 [core]
 	pager = less -r
+	autocrlf = input
+	excludesfile = /Users/Oscar/.gitignore_global
 [credential]
 	helper = cache
 [alias]
@@ -13,6 +15,7 @@
 	aa = !git add . && git add -u && git status
 	b = branch
 	c = commit
+	cba = shortlog -s -n --all
 	cm = commit -m
 	d = diff --color-words
 	dc = diff --color-words --cached
@@ -69,3 +72,9 @@
 	error = red
 [color "log"]
 	header = bold
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
